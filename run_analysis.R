@@ -73,9 +73,9 @@ all2$device <- ifelse(grepl("Acc",all2$new_variable),"accelerometer", "gyroscope
 all2$jerk <- ifelse(grepl("Jerk",all2$new_variable),TRUE,FALSE)
 all2$mag <- ifelse(grepl("Mag",all2$new_variable),TRUE,FALSE)
 
- # final select ------------------------------------------------------------------------------------------------
-all2 <- select(all2,variable,activity,subject,mean_value,value_type, time_or_ftt,motion_type:mag,axis)0
-
+ # final select and text file creation -------------------------------------------------------------------------
+all2 <- select(all2,variable,activity,subject,mean_value,value_type, time_or_ftt,motion_type:mag,axis)
+write.table(all2, "run_analysis.txt", row.name = FALSE)
 
 
 
